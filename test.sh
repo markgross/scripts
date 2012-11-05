@@ -1,7 +1,7 @@
 #!/bin/sh
 
-ROOTFS="core-image-sato-qemux86-64.ext3"
-ROOTFS="core-image-sato-qemux86-64-20121104193726.rootfs.ext3"
+ROOTFS="core-image-minimal-qemux86-64.ext3"
+# ROOTFS="core-image-sato-qemux86-64-20121104193726.rootfs.ext3"
 
 top=`pwd`
 
