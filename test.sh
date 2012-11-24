@@ -13,8 +13,10 @@ sudo mount -o loop  $ROOTFS root
 
 cd linux-stable
 sudo make INSTALL_MOD_PATH="$top/root" modules_install
-
+sync
 cd $top
+sudo umount root
+
 sudo qemu-system-x86_64 \
 	-kernel linux-stable/arch/x86/boot/bzImage \
 	-hda $ROOTFS \
@@ -40,5 +42,4 @@ sudo qemu-system-x86_64 \
 #	-m 128 \
 #	--append "console=ttyS0 vga=0 root=/dev/sda rw mem=128M oprofile.timer=1"
 
-sudo umount root
 
