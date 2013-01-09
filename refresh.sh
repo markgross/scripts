@@ -1,4 +1,4 @@
-!#/bin/sh
+#!/bin/sh
 
 top=`pwd`
 ssd="/mnt/ssd"
@@ -10,7 +10,7 @@ MIRROR="$ssd$top/mirror/linux-stable.git"
 mkdir -p $ssd$top/mirror
 cd $ssd$top/mirror
 git clone --mirror $STABLE
-cd linux-stable
+cd linux-stable.git
 git fetch --all
 cd $top
 

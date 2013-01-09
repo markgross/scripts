@@ -1,4 +1,4 @@
-!#/bin/sh
+#!/bin/sh
 
 top=`pwd`
 ssd="/mnt/ssd"
@@ -25,7 +25,7 @@ for b in $trees; do mkdir $top/$b; cd $top/$b; \
        git checkout origin/linux-$branch.y  -b `date -u +%Y_%b_%d_%H_%M_UTC`; \
        cp -r $top/stable-queue/$b patches; \
        nohup quilt push -a; \
-       source $top/use_ccache.sh; \
+       source $top/scripts/use_ccache.sh; \
        nohup make defconfig; \
        time nohup make -j 8; \
        file vmlinux; \
