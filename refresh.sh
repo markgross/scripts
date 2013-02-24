@@ -1,24 +1,25 @@
 #!/bin/sh
 
 top=`pwd`
-ssd="/mnt/ssd"
 
 QUEUE="git://git.kernel.org/pub/scm/linux/kernel/git/stable/stable-queue.git"
 STABLE="git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
-MIRROR="$ssd$top/mirror/linux-stable.git"
+MIRROR_DIR="/x/mark/$HOME/mirror"
+MIRROR="$MIRROR_DIR/linux-stable.git"
 
-mkdir -p $ssd$top/mirror
-cd $ssd$top/mirror
+mkdir -p $MIRROR_DIR
+cd $MIRROR_DIR
 git clone --mirror $STABLE
-cd linux-stable.git
+cd $MIRROR
 git fetch --all
 cd $top
 
 git clone $QUEUE
 
 cd stable-queue
-git pull
-trees=`ls -d queue-*`
+git fetch
+git checkout stable/master
+trees=`ls -d review-* queue-*`
 cd $top
 
 for b in $trees; do mkdir $top/$b; cd $top/$b; \

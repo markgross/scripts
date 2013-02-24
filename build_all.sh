@@ -1,11 +1,9 @@
 #!/bin/sh
 
 top=`pwd`
-ssd="/mnt/ssd"
 
 #QUEUE="git://git.kernel.org/pub/scm/linux/kernel/git/stable/stable-queue.git"
 #STABLE="git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
-#MIRROR="$ssd$top/mirror/linux-stable.git"
 
 cd stable-queue
 git pull

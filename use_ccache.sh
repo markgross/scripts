@@ -1,5 +1,5 @@
 TOP=`pwd`
-ssd=/mnt/ssd
+ssd="$HOME/ssd"
 
 # if you are using you SSD as a ccache or out target you can mount it for speed 
 # and give up on fault tollerance.
@@ -13,7 +13,7 @@ ssd=/mnt/ssd
 export USE_CCACHE=1
 export CCACHE_DIR=$ssd$TOP/ccache
 mkdir -p $CCACHE_DIR
-ccache -F 1000000
+ccache -F 500000
 ccache -M 8G
 
 export CC="ccache gcc"
